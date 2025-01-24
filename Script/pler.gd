@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 7.5
 
 @onready var animation = $AnimationPlayer
 
@@ -26,6 +26,8 @@ func _input(event):
 		
 	if Input.is_action_just_pressed("Down"):
 		$rig.rotation.y = -1.57
+	
+	
 
 func _physics_process(delta):
 	# Add the gravity.
