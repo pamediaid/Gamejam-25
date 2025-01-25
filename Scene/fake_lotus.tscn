@@ -1,27 +1,112 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy025pwsfr3gd"]
+[gd_scene load_steps=7 format=3 uid="uid://cy025pwsfr3gd"]
 
 [ext_resource type="Script" path="res://Script/fake_lotus.gd" id="1_j5tni"]
+[ext_resource type="Texture2D" uid="uid://dytr3bybnv01u" path="res://Asset/daun teratai.png" id="2_vh2vt"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_kx32c"]
-size = Vector3(10, 0.454, 10)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6416e"]
+height = 0.538129
+radius = 4.01984
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_8jy0o"]
-size = Vector2(10, 10)
+[sub_resource type="Animation" id="Animation_ofbyw"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-6.72651, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_k4hnv"]
+resource_name = "idle"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.337741, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -6.72651, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1xs4"]
+_data = {
+"RESET": SubResource("Animation_ofbyw"),
+"idle": SubResource("Animation_k4hnv")
+}
 
 [node name="FakeLotus" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.72651, 0)
 script = ExtResource("1_j5tni")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.107758, 0)
-shape = SubResource("BoxShape3D_kx32c")
+[node name="MeshInstance3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 2.71519)
+texture = ExtResource("2_vh2vt")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_8jy0o")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101804, -0.17268, 1.44635)
+shape = SubResource("CylinderShape3D_6416e")
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263793, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.150899, 0)
-shape = SubResource("BoxShape3D_kx32c")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101804, -0.17268, 1.44635)
+shape = SubResource("CylinderShape3D_6416e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r1xs4")
+}
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://m3dmlpel8x53"
+path="res://.godot/imported/jalan di rumput.wav-9542bce4b6165a84dc76f4b9e603c161.sample"
+
+[deps]
+
+source_file="res://Asset/jalan di rumput.wav"
+dest_files=["res://.godot/imported/jalan di rumput.wav-9542bce4b6165a84dc76f4b9e603c161.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

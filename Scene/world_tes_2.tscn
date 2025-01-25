@@ -51,6 +51,16 @@ shape = SubResource("ConcavePolygonShape3D_xli7i")
 mesh = SubResource("BoxMesh_23xb8")
 skeleton = NodePath("../..")
 
+[node name="Plat11" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -40)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plat11"]
+shape = SubResource("ConcavePolygonShape3D_xli7i")
+
+[node name="Plat" type="MeshInstance3D" parent="Plat11"]
+mesh = SubResource("BoxMesh_23xb8")
+skeleton = NodePath("../..")
+
 [node name="Plat2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -23)
 
@@ -72,7 +82,7 @@ mesh = SubResource("BoxMesh_23xb8")
 skeleton = NodePath("../..")
 
 [node name="Plat4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 12, -14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -4)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plat4"]
 shape = SubResource("ConcavePolygonShape3D_xli7i")
@@ -82,7 +92,7 @@ mesh = SubResource("BoxMesh_23xb8")
 skeleton = NodePath("../..")
 
 [node name="Plat5" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 13, -14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, -4)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plat5"]
 shape = SubResource("ConcavePolygonShape3D_xli7i")
@@ -92,7 +102,7 @@ mesh = SubResource("BoxMesh_23xb8")
 skeleton = NodePath("../..")
 
 [node name="Plat6" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 13, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 10, -4)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plat6"]
 shape = SubResource("ConcavePolygonShape3D_xli7i")
@@ -102,7 +112,7 @@ mesh = SubResource("BoxMesh_23xb8")
 skeleton = NodePath("../..")
 
 [node name="Plat7" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 13, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 10, 5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plat7"]
 shape = SubResource("ConcavePolygonShape3D_xli7i")
@@ -112,7 +122,7 @@ mesh = SubResource("BoxMesh_23xb8")
 skeleton = NodePath("../..")
 
 [node name="Plat8" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 13, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 10, 13)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plat8"]
 shape = SubResource("ConcavePolygonShape3D_xli7i")
@@ -122,7 +132,7 @@ mesh = SubResource("BoxMesh_23xb8")
 skeleton = NodePath("../..")
 
 [node name="Plat9" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 10, 13)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plat9"]
 shape = SubResource("ConcavePolygonShape3D_xli7i")
@@ -132,7 +142,7 @@ mesh = SubResource("BoxMesh_23xb8")
 skeleton = NodePath("../..")
 
 [node name="Plat10" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 13)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plat10"]
 shape = SubResource("ConcavePolygonShape3D_xli7i")
@@ -141,20 +151,8 @@ shape = SubResource("ConcavePolygonShape3D_xli7i")
 mesh = SubResource("BoxMesh_23xb8")
 skeleton = NodePath("../..")
 
-[node name="Plat11" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -42)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Plat11"]
-shape = SubResource("ConcavePolygonShape3D_xli7i")
-
-[node name="Plat" type="MeshInstance3D" parent="Plat11"]
-mesh = SubResource("BoxMesh_23xb8")
-skeleton = NodePath("../..")
-
 [node name="Pler" parent="." instance=ExtResource("1_0kxs4")]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.0398064, -1, -51.5879)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.184672, 0.9828, 9.15304e-10, 0.0739285, -0.0138914, 0.997167, 0.980016, -0.184149, -0.0752223, 0, 34.1573, 0)
-
-[editable path="Pler"]

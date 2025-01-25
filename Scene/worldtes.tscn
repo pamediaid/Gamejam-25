@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cohmdv4pis1am"]
+[gd_scene load_steps=9 format=3 uid="uid://cohmdv4pis1am"]
 
 [ext_resource type="PackedScene" uid="uid://fkp78kx14ups" path="res://Scene/pler.tscn" id="1_dw6s0"]
+[ext_resource type="PackedScene" uid="uid://be130qn8puopg" path="res://Scene/lotus.tscn" id="2_37ndl"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_dp5yj"]
 size = Vector2(100, 10)
@@ -3001,13 +3002,11 @@ bones/190/rotation = Quaternion(0.48075, -0.515709, 0.557435, -0.438394)
 bones/195/position = Vector3(2.98023e-08, 0, 1.49012e-08)
 bones/209/position = Vector3(0, 0, 1.49012e-08)
 
-[node name="AnimationPlayer" parent="Pler" index="4"]
+[node name="AnimationPlayer" parent="Pler" index="5"]
 libraries = {
 "": SubResource("AnimationLibrary_c46pt")
 }
 
-[node name="Camera3D" parent="Pler" index="5"]
-transform = Transform3D(-4.37722e-08, 0, -1, 0, 1, 0, 1, 0, -4.37722e-08, -7.32989, 3.42896, 0.164598)
-fov = 90.6271
+[node name="Lotus" parent="." instance=ExtResource("2_37ndl")]
 
 [editable path="Pler"]

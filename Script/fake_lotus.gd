@@ -3,6 +3,7 @@ extends StaticBody3D
 
 
 @onready var fake_lotus = $"."
+@onready var animation = $AnimationPlayer
 
 
 func disappear():
@@ -11,5 +12,6 @@ func disappear():
 
 func _on_area_3d_body_entered(body):
 	if body.name == "Pler":
-		await get_tree().create_timer(0.3).timeout
+		animation.play("idle")
+		await get_tree().create_timer(0.7).timeout
 		disappear()

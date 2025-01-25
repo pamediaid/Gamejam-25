@@ -9,11 +9,9 @@ const JUMP_VELOCITY = 7.5
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
-	
+
 func _input(event):
 	if Input.is_action_just_pressed("Left"):
 		$rig.rotation.y = -3.14

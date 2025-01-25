@@ -1,0 +1,243 @@
+[gd_scene load_steps=15 format=3 uid="uid://cd5woddk5h7sf"]
+
+[ext_resource type="Script" path="res://Script/Cat.gd" id="1_wgqbi"]
+[ext_resource type="PackedScene" uid="uid://ci33qvv037h6i" path="res://Scene/cat_detector.tscn" id="2_a02si"]
+[ext_resource type="PackedScene" uid="uid://fkp78kx14ups" path="res://Scene/pler.tscn" id="2_y3g7u"]
+[ext_resource type="Script" path="res://Script/cat_detector.gd" id="3_wtjtj"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wva78"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cp6hq"]
+size = Vector2(100, 100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_p6ae2"]
+data = PackedVector3Array(-2, 3.5, 0.5, 2, 3.5, 0.5, -2, -3.5, 0.5, 2, 3.5, 0.5, 2, -3.5, 0.5, -2, -3.5, 0.5, 2, 3.5, -0.5, -2, 3.5, -0.5, 2, -3.5, -0.5, -2, 3.5, -0.5, -2, -3.5, -0.5, 2, -3.5, -0.5, 2, 3.5, 0.5, 2, 3.5, -0.5, 2, -3.5, 0.5, 2, 3.5, -0.5, 2, -3.5, -0.5, 2, -3.5, 0.5, -2, 3.5, -0.5, -2, 3.5, 0.5, -2, -3.5, -0.5, -2, 3.5, 0.5, -2, -3.5, 0.5, -2, -3.5, -0.5, 2, 3.5, 0.5, -2, 3.5, 0.5, 2, 3.5, -0.5, -2, 3.5, 0.5, -2, 3.5, -0.5, 2, 3.5, -0.5, -2, -3.5, 0.5, 2, -3.5, 0.5, -2, -3.5, -0.5, 2, -3.5, 0.5, 2, -3.5, -0.5, -2, -3.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5jjna"]
+size = Vector3(4, 7, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sj44w"]
+size = Vector3(1, 1, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p4oi3"]
+size = Vector3(4, 1, 1)
+
+[sub_resource type="Animation" id="Animation_vyxcd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.15936, 5.49331)]
+}
+
+[sub_resource type="Animation" id="Animation_g85q2"]
+resource_name = "close_eye"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 3.57983, 5.49331), Vector3(0, 2.15936, 5.49331)]
+}
+
+[sub_resource type="Animation" id="Animation_1wykt"]
+resource_name = "open_eye"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.15936, 5.49331), Vector3(0, 3.57983, 5.49331)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rnftt"]
+_data = {
+"RESET": SubResource("Animation_vyxcd"),
+"close_eye": SubResource("Animation_g85q2"),
+"open_eye": SubResource("Animation_1wykt")
+}
+
+[node name="WorldTes3" type="Node3D"]
+
+[node name="Platform" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
+shape = SubResource("ConcavePolygonShape3D_wva78")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform"]
+mesh = SubResource("PlaneMesh_cp6hq")
+skeleton = NodePath("../..")
+
+[node name="Carrot" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.2327, 2.8581, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot"]
+shape = SubResource("ConcavePolygonShape3D_p6ae2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Carrot"]
+mesh = SubResource("BoxMesh_5jjna")
+skeleton = NodePath("../..")
+
+[node name="Carrot2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.2917, 2.8581, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot2"]
+shape = SubResource("ConcavePolygonShape3D_p6ae2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Carrot2"]
+mesh = SubResource("BoxMesh_5jjna")
+skeleton = NodePath("../..")
+
+[node name="Carrot3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.8921, 2.8581, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot3"]
+shape = SubResource("ConcavePolygonShape3D_p6ae2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Carrot3"]
+mesh = SubResource("BoxMesh_5jjna")
+skeleton = NodePath("../..")
+
+[node name="Carrot4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4164, 2.8581, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot4"]
+shape = SubResource("ConcavePolygonShape3D_p6ae2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Carrot4"]
+mesh = SubResource("BoxMesh_5jjna")
+skeleton = NodePath("../..")
+
+[node name="Carrot5" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.475, 2.8581, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot5"]
+shape = SubResource("ConcavePolygonShape3D_p6ae2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Carrot5"]
+mesh = SubResource("BoxMesh_5jjna")
+skeleton = NodePath("../..")
+
+[node name="Carrot6" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97995, 2.8581, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot6"]
+shape = SubResource("ConcavePolygonShape3D_p6ae2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Carrot6"]
+mesh = SubResource("BoxMesh_5jjna")
+skeleton = NodePath("../..")
+
+[node name="Carrot7" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.69636, 2.8581, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot7"]
+shape = SubResource("ConcavePolygonShape3D_p6ae2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Carrot7"]
+mesh = SubResource("BoxMesh_5jjna")
+skeleton = NodePath("../..")
+
+[node name="Carrot8" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9994, 2.8581, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot8"]
+shape = SubResource("ConcavePolygonShape3D_p6ae2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Carrot8"]
+mesh = SubResource("BoxMesh_5jjna")
+skeleton = NodePath("../..")
+
+[node name="Carrot9" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3647, 2.8581, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot9"]
+shape = SubResource("ConcavePolygonShape3D_p6ae2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Carrot9"]
+mesh = SubResource("BoxMesh_5jjna")
+skeleton = NodePath("../..")
+
+[node name="Carrot10" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.4357, 2.8581, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot10"]
+shape = SubResource("ConcavePolygonShape3D_p6ae2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Carrot10"]
+mesh = SubResource("BoxMesh_5jjna")
+skeleton = NodePath("../..")
+
+[node name="Carrot11" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2913, 2.8581, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot11"]
+shape = SubResource("ConcavePolygonShape3D_p6ae2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Carrot11"]
+mesh = SubResource("BoxMesh_5jjna")
+skeleton = NodePath("../..")
+
+[node name="Carrot12" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.4965, 2.8581, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot12"]
+shape = SubResource("ConcavePolygonShape3D_p6ae2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Carrot12"]
+mesh = SubResource("BoxMesh_5jjna")
+skeleton = NodePath("../..")
+
+[node name="Cat" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4342, 10.1561, -37.6742)
+script = ExtResource("1_wgqbi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cat"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("BoxMesh_sj44w")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15936, 5.49331)
+mesh = SubResource("BoxMesh_p4oi3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cat"]
+libraries = {
+"": SubResource("AnimationLibrary_rnftt")
+}
+
+[node name="CatDetector" parent="." instance=ExtResource("2_a02si")]
+script = ExtResource("3_wtjtj")
+
+[node name="CatDetector2" parent="." instance=ExtResource("2_a02si")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.1955, 2.79721, 1.58842)
+script = ExtResource("3_wtjtj")
+
+[node name="Pler" parent="." instance=ExtResource("2_y3g7u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -47.6701, -0.970604, 1.6475)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.992785, 7.46877e-09, 0.119912, -0.11983, -0.0368355, 0.992111, 0.00441701, -0.999321, -0.0365697, 19.4669, 38.6715, 0)
+
+[connection signal="body_entered" from="CatDetector" to="CatDetector" method="_on_body_entered"]
+[connection signal="body_entered" from="CatDetector2" to="CatDetector2" method="_on_body_entered"]

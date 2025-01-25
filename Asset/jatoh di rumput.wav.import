@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c6dny2tv3imie"
+path="res://.godot/imported/jatoh di rumput.wav-a23e65fcafaf0a33699ade4a20ef3c36.sample"
+
+[deps]
+
+source_file="res://Asset/jatoh di rumput.wav"
+dest_files=["res://.godot/imported/jatoh di rumput.wav-a23e65fcafaf0a33699ade4a20ef3c36.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

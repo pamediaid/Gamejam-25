@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci33qvv037h6i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3vr24"]
+size = Vector3(4, 7, 4)
+
+[node name="CatDetector" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.6769, 2.79721, 1.58842)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.23336)
+shape = SubResource("BoxShape3D_3vr24")

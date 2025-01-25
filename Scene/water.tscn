@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://du6xasuj05cy8"]
+
+[ext_resource type="Shader" path="res://Script/water.gdshader" id="1_wer1f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7w7dp"]
+render_priority = 0
+shader = ExtResource("1_wer1f")
+shader_parameter/wave_speed = 1.0
+shader_parameter/wave_amplitude = 0.1
+shader_parameter/wave_frequency = 2.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d74xj"]
+material = SubResource("ShaderMaterial_7w7dp")
+size = Vector2(100, 100)
+
+[node name="Water" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_d74xj")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.372482, 0.146255, 0.375824)
+size = Vector3(101.961, 10.7793, 103.202)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0446307, -0.999004, 0, 0.999004, 0.0446307, 0, -5.45158, 0)
+spot_range = 4.78114
+spot_angle = 57.6563

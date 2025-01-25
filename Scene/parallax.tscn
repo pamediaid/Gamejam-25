@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://1vl7futw71ht"]
+
+[ext_resource type="Texture2D" uid="uid://cp8sj2kelg23r" path="res://Asset/langit.png" id="1_k8gac"]
+[ext_resource type="Texture2D" uid="uid://ccgq44pa1nmu2" path="res://Asset/bg bunga bunga.png" id="2_acybm"]
+
+[node name="Parallax" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+texture_filter = 1
+scale = Vector2(0.644762, 0.632381)
+texture = ExtResource("1_k8gac")
+centered = false
+
+[node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains"]
+texture_filter = 1
+scale = Vector2(0.644762, 0.644762)
+texture = ExtResource("2_acybm")
+centered = false
